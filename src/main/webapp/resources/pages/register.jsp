@@ -11,34 +11,40 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="../../resources/css/style.css">
 </head>
+<style>
+    <%@include file="../css/style.css" %>
+</style>
 <body>
 <div class="container">
     <div class="register">
-        <form class="register-form" action="controller" method="post">
+        <h1>Signup</h1>
+        <h2>to get started</h2>
+        <form class="register-form" action="controller">
+
             <input type="hidden" name="command" value="register"/>
-            <div class="form-group">
-                <label for="userName"></label><input type="text" class="form-control" name="userName" id="userName"
-                                                     placeholder="Username"/>
-            </div>
-            <div class="form-group">
-                <label for="userEmail"></label><input type="text" class="form-control" name="userEmail" id="userEmail"
-                                                      placeholder="Email"/>
-            </div>
-            <div class="form-group">
-                <label>
-                    <input type="password" class="form-control" name="userPass" placeholder="Password"/>
-                </label>
-            </div>
-            <div class="form-group">
-                <label>
-                    <input class="form-control" type="password" name="repeatPass" placeholder="Repeat password"/>
-                </label>
-            </div>
-            <button type="submit" name="register">SignUp</button>
+
+            <input type="text" class="form-control" name="userName" id="userName" placeholder="Username"/>
+            <input type="text" class="form-control" name="userEmail" id="userEmail" placeholder="Email"/>
+            <input type="password" class="form-control" name="userPass" placeholder="Password"/>
+            <input class="form-control" type="password" name="repeatPass" placeholder="Repeat password"/>
+            <span>
+                    <label>
+                        <input type="checkbox" name="checkbox"/> Agree to Our terms and Conditions
+                    </label>
+                </span>
+            <input type="submit" class="form-control" name="register" value="Continue"/>
         </form>
+
+        <div class="already">
+            <p>Already registered? <b><a href="${pageContext.request.contextPath}/resources/pages/index.jsp">Login</a></b></p>
+        </div>
+        <div class="err-message">
+            <p>${register_msg}</p>
+        </div>
     </div>
+
 </div>
 </body>
+
 </html>

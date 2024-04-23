@@ -4,13 +4,15 @@
 <head>
     <title>Login</title>
 </head>
-
+<style>
+    <%@include file="../css/style.css" %>
+</style>
 <body>
 <div class="container">
     <div class="register">
         <h1>Login</h1>
         <h2>to get started</h2>
-        <form class="register-form" action="controller" method="post">
+        <form class="register-form" action="controller">
 
             <input type="hidden" name="command" value="login" />
 
@@ -20,9 +22,12 @@
             <p id="forgot">Forgot Password?</p>
             <input type="submit" class="form-control" name="sub" value="Continue" />
         </form>
-        ${login_msg.toUpperCase()}
+
         <div class="already">
-            <p>New User? <b>Register</b></p>
+            <p>New User? <b><a href="${pageContext.request.contextPath}/resources/pages/register.jsp">Register</a></b></p>
+        </div>
+        <div class="err-message">
+            <p>${login_msg}</p>
         </div>
     </div>
 

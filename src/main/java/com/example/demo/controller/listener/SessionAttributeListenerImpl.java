@@ -3,35 +3,17 @@ package com.example.demo.controller.listener;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @WebListener
-public class SessionAttributeListenerImpl implements ServletContextListener, HttpSessionListener, HttpSessionAttributeListener {
-
-    public SessionAttributeListenerImpl() {}
-
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        /* This method is called when the servlet context is initialized(when the Web application is deployed). */
-    }
-
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        /* This method is called when the servlet Context is undeployed or Application Server shuts down. */
-    }
-
-    @Override
-    public void sessionCreated(HttpSessionEvent se) {
-        /* Session is created. */
-    }
-
-    @Override
-    public void sessionDestroyed(HttpSessionEvent se) {
-        /* Session is destroyed. */
-    }
-
+public class SessionAttributeListenerImpl implements HttpSessionAttributeListener {
+    static Logger logger = LogManager.getLogger();
     @Override
     public void attributeAdded(HttpSessionBindingEvent sbe) {
-        /* This method is called when an attribute is added to a session. */
+        logger.log(Level.INFO, "+++<<<<--------> attributeAdded: " + sbe.getSession().getAttribute("user_name"));
+        logger.log(Level.INFO, "+++<<<<--------> attributeAdded: " + sbe.getSession().getAttribute("current_page"));
     }
 
     @Override
@@ -41,6 +23,7 @@ public class SessionAttributeListenerImpl implements ServletContextListener, Htt
 
     @Override
     public void attributeReplaced(HttpSessionBindingEvent sbe) {
-        /* This method is called when an attribute is replaced in a session. */
+        logger.log(Level.INFO, "###<<<<--------> attributeReplaced: " + sbe.getSession().getAttribute("user_name"));
+        logger.log(Level.INFO, "###<<<<--------> attributeReplaced: " + sbe.getSession().getAttribute("current_page"));
     }
 }
