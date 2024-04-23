@@ -1,0 +1,46 @@
+.container {
+    background: #0016DF;
+}
+
+.form-control {
+
+}
+
+.form-group {
+
+}
+
+.register-form {
+
+}
+.register input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.register input[type = "text"],
+input[type = "password"] {
+    border: 1px solid #EAEAEA;
+    outline: none;
+    background: transparent;
+    color: white;
+    height: 60px;
+    font-size: 15px;
+}
+
+.register button[type = "submit"] {
+    outline: none;
+    height: 60px;
+    border-radius: 25px;
+    background-color: #0016DF;
+    border: 1px solid #EAEAEA;
+    color: white;
+    font-size: 15px;
+    transition: .5s;
+}
+
+.register button[type = "submit"]:hover {
+    cursor: pointer;
+    background-color: #0016DF;
+    color: #222222;
+}
